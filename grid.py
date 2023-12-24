@@ -25,6 +25,36 @@ class Grid:
             return True
         return False
     
+    def is_full(self, row): 
+        for i in range(self.num_cols): 
+            if self.grid[row][i] == 0: 
+                return False
+        return True
+
+    def clear(self, row):
+        for i in range(self.num_cols):
+            if self.is_inside(row, i):
+                self.grid[row][i] = 0
+
+    def clear_rows(self):
+        full_rows = []
+        for i in range(self.num_rows - 1, 0, -1):
+            if self.is_full(i):
+                full_rows.append(i)
+
+        for row in full_rows:
+            self.clear(row)
+            self.update_rows(row)
+
+        return len(full_rows)
+
+    def update_rows(self, cleared_row):
+        for i in range(cleared_row - 1, -1, -1):
+            for j in range(self.num_cols):
+                if self.is_inside(i, j) and self.grid[i][j] != 0:
+                    self.grid[i + 1][j] = self.grid[i][j]
+                    self.grid[i][j] = 0
+
     def draw(self, screen): 
         for i in range(self.num_rows): 
             for j in range(self.num_cols): 
