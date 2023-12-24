@@ -54,7 +54,8 @@ while True:
     screen.fill(dark_blue)
     game.draw(screen)
     pg.display.update()
-    game.grid.print_grid()
+    # uncomment for debugging 
+    # game.grid.print_grid()
 
     # runs 60 frames/ second 
     clock.tick(60)
