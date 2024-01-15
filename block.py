@@ -11,6 +11,7 @@ class Block:
         self.rotationState = 0
         self.row_off = 0
         self.col_off = 0 
+        self.holding_block = False 
         self.colors = Colors.get_colors()
     
     def move(self, rows, cols): 
@@ -42,7 +43,3 @@ class Block:
                                 tile.row * self.cell_sz + y_off, 
                                 self.cell_sz - 1 , self.cell_sz - 1)
             pg.draw.rect(screen, self.colors[self.id], tile_rect)
-            # tile_rect = pg.Rect(tile.col * self.cell_sz + 1, 
-            #                     tile.row * self.cell_sz + 1, 
-            #                     self.cell_sz - 1 , self.cell_sz - 1)
-            # pg.draw.rect(screen, self.colors[self.id], tile_rect)

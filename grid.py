@@ -74,11 +74,15 @@ class Grid:
                 self.grid[i][j] = 0 
 
     def draw(self, screen): 
+
         for i in range(self.num_rows): 
             for j in range(self.num_cols): 
                 cell_val = self.grid[i][j]
                 cell_rect = pg.Rect(j *self.cellSz + 11, i * self.cellSz + 11, self.cellSz - 1, self.cellSz - 1)
                 pg.draw.rect(screen,self.colors[cell_val],cell_rect)
+        grid_rect = pg.Rect(10, 10, self.num_cols * self.cellSz + 1, self.num_rows * self.cellSz + 1)
+        pg.draw.rect(screen, Colors.white, grid_rect, 1)
+
 
 
 
