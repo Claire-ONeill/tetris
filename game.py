@@ -102,10 +102,12 @@ class Game:
         self.blocks = [Iblock(), Sblock(), Tblock(), Zblock(), Oblock(), Jblock(), Lblock()]
         self.current_block = self.get_rand_block()
         self.next_block = self.get_rand_block()
-        self.hold_block = None
+        self.held_block = None
         self.has_held_block = False
         self.holding_block = False
         self.score = 0
+        self.level = 1
+        self.lines = 0 
         self.command = 0 
 
     def block_fits(self): 
